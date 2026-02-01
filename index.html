@@ -5,16 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Will You Be My Valentine?</title>
 
-  <!-- Open Graph meta tags to prevent duplicate link previews -->
+  <!-- Minimal OG tags to reduce preview text -->
   <meta property="og:title" content=" " />
   <meta property="og:description" content=" " />
-  <!-- Transparent 1x1 PNG image -->
-  <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/4/42/1x1_transparent.png" />
-  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:card" content="summary" />
 
   <style>
     body {
       height: 100vh;
+      margin: 0;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -23,16 +22,16 @@
     }
 
     .card {
-      background: white;
+      background: white; /* White card background */
       padding: 40px 50px;
       border-radius: 20px;
       text-align: center;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2); /* subtle shadow */
     }
 
     h1 {
-      margin-bottom: 30px;
       font-size: 28px;
+      margin-bottom: 30px;
       color: #333;
     }
 
@@ -73,20 +72,16 @@
 
   <script>
     const noBtn = document.getElementById('no');
-    const container = document.querySelector('.buttons');
+    const container = noBtn.parentElement;
 
-    function moveButton() {
+    noBtn.addEventListener('mouseenter', () => {
       const maxX = container.clientWidth - noBtn.offsetWidth;
       const maxY = container.clientHeight - noBtn.offsetHeight;
-
       const x = Math.random() * maxX;
       const y = Math.random() * maxY;
-
       noBtn.style.left = `${x}px`;
       noBtn.style.top = `${y}px`;
-    }
-
-    noBtn.addEventListener('mouseenter', moveButton);
+    });
 
     function yesClick() {
       document.querySelector('.card').innerHTML =
