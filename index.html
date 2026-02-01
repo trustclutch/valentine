@@ -5,10 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Will You Be My Valentine?</title>
 
-  <!-- Prevent link previews -->
-  <meta property="og:title" content="">
-  <meta property="og:description" content="">
-  <meta name="twitter:card" content="summary">
+  <!-- Open Graph meta tags to prevent preview -->
+  <meta property="og:title" content=" " />
+  <meta property="og:description" content=" " />
+  <meta property="og:image" content=" " />
+  <meta name="twitter:card" content="summary" />
 
   <style>
     body {
@@ -61,4 +62,35 @@
   </style>
 </head>
 <body>
-  <div clas
+  <div class="card">
+    <h1>Neel, will you be my Valentine? 💖</h1>
+    <div class="buttons">
+      <button id="yes" onclick="yesClick()">Yes</button>
+      <button id="no">No</button>
+    </div>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById('no');
+    const container = document.querySelector('.buttons');
+
+    function moveButton() {
+      const maxX = container.clientWidth - noBtn.offsetWidth;
+      const maxY = container.clientHeight - noBtn.offsetHeight;
+
+      const x = Math.random() * maxX;
+      const y = Math.random() * maxY;
+
+      noBtn.style.left = `${x}px`;
+      noBtn.style.top = `${y}px`;
+    }
+
+    noBtn.addEventListener('mouseenter', moveButton);
+
+    function yesClick() {
+      document.querySelector('.card').innerHTML =
+        "<h1>YAYYY 💕🥰<br>Best Valentine ever!</h1>";
+    }
+  </script>
+</body>
+</html>
