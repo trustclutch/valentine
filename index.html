@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Will You Be My Valentine?</title>
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      font-family: Arial, sans-serif;
+    }
+
+    .card {
+      background: white;
+      padding: 40px 50px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+      margin-bottom: 30px;
+      font-size: 28px;
+      color: #333;
+    }
+
+    .buttons {
+      position: relative;
+      height: 60px;
+    }
+
+    button {
+      padding: 12px 28px;
+      font-size: 16px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+    }
+
+    #yes {
+      background: #ff4d6d;
+      color: white;
+      margin-right: 20px;
+    }
+
+    #no {
+      background: #ccc;
+      color: #333;
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Neel, will you be my Valentine? 💖</h1>
+    <div class="buttons">
+      <button id="yes" onclick="yesClick()">Yes</button>
+      <button id="no">No</button>
+    </div>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById('no');
+    const container = document.querySelector('.buttons');
+
+    function moveButton() {
+      const maxX = container.clientWidth - noBtn.offsetWidth;
+      const maxY = container.clientHeight - noBtn.offsetHeight;
+
+      const x = Math.random() * maxX;
+      const y = Math.random() * maxY;
+
+      noBtn.style.left = `${x}px`;
+      noBtn.style.top = `${y}px`;
+    }
+
+    noBtn.addEventListener('mouseenter', moveButton);
+
+    function yesClick() {
+      document.querySelector('.card').innerHTML =
+        "<h1>YAYYY 💕🥰<br>Best Valentine ever!</h1>";
+    }
+  </script>
+</body>
+</html>
